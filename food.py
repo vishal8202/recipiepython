@@ -28,32 +28,16 @@ while True:
         mycursor.execute(sql , data)
         mydb.commit()
     elif(choice==2):
-        print('view food')
+        print('view student')
         sql = 'SELECT * FROM `food`'
         mycursor.execute(sql)
         result = mycursor.fetchall()
         for i in result:
             print(i)
     elif(choice==3):
-        print('search a food')
-        categorys = input('enter the category such as veg or non-veg : ')
-    
-        sql = "SELECT `id`, `Name`, `Category`, `Taste`, `Price` FROM `food` WHERE `Category`='"+categorys+"'"
-        mycursor.execute(sql)
-        result = mycursor.fetchall()
-        for i in result:
-            print(i)
+        print('search a student')
     elif(choice==4):
         print('update the student')
-        categorys = input('enter the category such as veg or non-veg : ')
-        name = input('enter the name of the recipe : ')
-        
-        taste = input('enter the taste you need : ')
-        price = input('enter the price : ')
-
-        sql = "UPDATE `food` SET `Name`='"+name+"',`Category`='"+categorys+"',`Taste`='"+taste+"',`Price`='"+price+"' WHERE `Category`='"+categorys+"'"
-        mycursor.execute(sql)
-        mydb.commit()
     elif(choice==5):
         print('delete the student')
     elif(choice==6):
