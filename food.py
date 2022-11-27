@@ -11,10 +11,7 @@ while True:
     print('3 search a recipe')
     print('4 update a recipe')
     print('5 delete a recipe')
-    print('6 total price of food')
-    print('7 total price for each category')
-    print('8 Starting letter of name of recepi ')
-    print('9 exit')
+    print('6 exit')
 
     choice = int(input('Enter an option: '))
     if(choice==1):
@@ -31,56 +28,12 @@ while True:
         mycursor.execute(sql , data)
         mydb.commit()
     elif(choice==2):
-        print('view food')
-        sql = 'SELECT * FROM `food`'
-        mycursor.execute(sql)
-        result = mycursor.fetchall()
-        for i in result:
-            print(i)
+        print('view student')
     elif(choice==3):
-        print('search a food')
-        categorys = input('enter the category such as veg or non-veg : ')
-    
-        sql = "SELECT `id`, `Name`, `Category`, `Taste`, `Price` FROM `food` WHERE `Category`='"+categorys+"'"
-        mycursor.execute(sql)
-        result = mycursor.fetchall()
-        for i in result:
-            print(i)
+        print('search a student')
     elif(choice==4):
         print('update the student')
-        
-        name = input('enter the name of the recipe to be updated : ')
-        categorys = input('enter the category such as veg or non-veg : ')
-        taste = input('enter the taste you need : ')
-        price = input('enter the price : ')
-
-        sql = "UPDATE `food` SET `Name`='"+name+"',`Category`='"+categorys+"',`Taste`='"+taste+"',`Price`='"+price+"' WHERE `Category`='"+name+"'"
-        mycursor.execute(sql)
-        mydb.commit()
     elif(choice==5):
         print('delete the student')
-        name = input('enter the name of the recipe to be deleting : ')
-        sql = "DELETE FROM `food` WHERE `Name`='"+name+"'"
-        mycursor.execute(sql)
-        mydb.commit()
-    elif(choice == 6):
-        print('total price')
-        sql = 'SELECT SUM(`Price`) FROM `food` '
-        mycursor.execute(sql)
-        result = mycursor.fetchall()
-        print(result)
-    elif(choice == 7):
-        print('total price for each category')
-        sql = "SELECT `Category`, SUM(`Price`) FROM `food` GROUP BY `Category`"
-        mycursor.execute(sql)
-        result = mycursor.fetchall()
-        print(result)
-    elif(choice==8):
-        print('Starting letter of name of recepi')
-        st = input('Enter the first character of the name : ')
-        sql = "SELECT * FROM `food` WHERE `Name` LIKE '%"+st+"%'"
-        mycursor.execute(sql)
-        result = mycursor.fetchall()
-        print(result)
-    elif(choice==9):
+    elif(choice==6):
         break
